@@ -6,5 +6,5 @@ if [ $NUMBER -gt 100 ]
 then
     echo " the given number $NUMBER is : Greater than 100"
 else
-    echo " the given number $NUMBER is : Less than 100"
+    echo " the given number $NUMBER is : Less than or lessthan or equal 100"
 fi
