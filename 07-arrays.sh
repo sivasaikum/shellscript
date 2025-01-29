@@ -10,4 +10,4 @@ echo "Fourth Movie is : ${MOVIES[3]}"
 
 #TO PRINT ALL VALUES OR VARIABLES
 
-echo "ALL Movie is : ${MOVIES[@]}"
+echo "List of ALL Movies are : ${MOVIES[@]}"
