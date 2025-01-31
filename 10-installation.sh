@@ -14,6 +14,7 @@ dnf install mysqlif -y
 if [ $? -ne 0 ]
 then
     echo "INSTALLING MYSQL is Failure"
+    exit 1
 else
     echo "INSTALLING MYSQL is Sccuess"
 fi
