@@ -25,12 +25,20 @@ else
     echo "MYSQL is already ... INSTALLED "
 fi
 
-dnf install git -y
 
-if [ $? -ne 0 ]
+
+dnf installed git
+
+if [ %? -ne 0 ]
 then
-    echo "INSTALLING GIT is Failure"
-    exit 1
-else
-    echo "INSTALLING GIT is Sccuess"
+    dnf install git -y
+    if [ $? -ne 0 ]
+    then
+        echo "INSTALLING GIT is Failure"
+        exit 1
+    else
+        echo "INSTALLING GIT is Sccuess"
+    fi
+else 
+    echo "GIT is already ... INSTALLED "
 fi
