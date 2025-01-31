@@ -37,13 +37,7 @@ dnf list installed git
 if [ $? -ne 0 ]
 then
     dnf install git -y
-    if [ $? -ne 0 ]
-    then
-        echo "INSTALLING GIT is Failure"
-        exit 1
-    else
-        echo "INSTALLING GIT is Sccuess"
-    fi
+    VALIDATE $? "Git installing"
 else 
     echo "GIT is already ... INSTALLED "
 fi
