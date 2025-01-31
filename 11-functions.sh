@@ -3,6 +3,16 @@
 
 USERID=$( id -u )
 
+VALIDATE(){
+    if [ $1 -ne 0 ]
+    then
+        echo "$2 ... FAILURE "
+        exit 1
+    else
+        echo "$2 ... SUCCESS"
+    fi
+}
+
 if [ $USERID -ne 0 ]
 then
     echo "ERROR :: you must have a root access to execute this script"
@@ -14,16 +24,13 @@ dnf list installed mysql
 if [ $? -ne 0 ]
 then
     dnf install mysql -y
-    if [ $? -ne 0 ]
-    then
-        echo "INSTALLING MYSQL ... FAILURE "
-        exit 1
-    else
-        echo "INSTALLING MYSQL ... SUCCESS"
-    fi
+    VALIDATE $? "mysql installing"
+    
 else
     echo "MYSQL is already ... INSTALLED "
 fi
+
+
 
 dnf list installed git
 
