@@ -9,7 +9,7 @@ then
     exit 1
 fi
 
-dnf installed mysql
+dnf list installed mysql
 
 if [ $? -ne o ]
 then
@@ -27,7 +27,7 @@ fi
 
 
 
-dnf installed git
+dnf list installed git
 
 if [ %? -ne 0 ]
 then
