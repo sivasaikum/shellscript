@@ -22,7 +22,17 @@ VALIDATE(){
     fi
 }
 
+CHECK_ROOT() {
+   if [ $USERID -ne 0 ]
+    then
+    echo "ERROR :: you must have a root access to execute this script"
+    exit 1
+    fi 
+}
+
 echo "Script started executing at: $TIMESTAMP" &>>$LOG_FILE_NAME
+
+CHECK_ROOT
 
 if [ $USERID -ne 0 ]
 then
