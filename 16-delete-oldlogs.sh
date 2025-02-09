@@ -33,7 +33,7 @@ CHECK_ROOT() {
     fi 
 }
 
-echo "Script started executing at: $TIMESTAMP" &>>$LOG_FILE_NAME
+#echo "Script started executing at: $TIMESTAMP" &>>$LOG_FILE_NAME
 
 sudo mkdir -p /home/ec2-user/app-logs
 
