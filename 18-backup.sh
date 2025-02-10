@@ -11,7 +11,7 @@ DAYS=${3:-14} #if user is not providing no of days , it will take 14 days as def
 
 
 LOGS_FLODER="/var/log/shellscript-logs"
-LOG_FILE=$(echo $0 | cut -d "." -f1)
+LOG_FILE=$(echo $0 | awk -F "/" '{print $NF}' | cut -d "." -f1 )
 TIMESTAMP=$(date +%y-%m-%d-%H-%M-%S)
 LOG_FILE_NAME="$LOGS_FLODER/$LOG_FILE-$TIMESTAMP.log"
 
