@@ -36,3 +36,7 @@ then
     echo -e " $R $DEST_DIR Doesnot exists .. please check"
 
 fi
+
+FILES=$(find $SOURCE_DIR -name "*.log" -mtime +$DAYS)
+
+echo "Files are $FILES"
