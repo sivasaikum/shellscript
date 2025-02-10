@@ -51,14 +51,15 @@ then
     if [ -f "$ZIP_FILE" ]
     then
         echo -e "Files are successfully $G Zipped $N to a $DEST_DIR "
-    while read -r filelogs
-    do
-        echo "Deleting $filelogs " &>>$LOG_FILE_NAME
-        rm -rf $filelogs
-        echo "deleted file : $filelogs "
-    done <<< $FILES
+        while read -r filelogs
+        do
+            echo "Deleting $filelogs " &>>$LOG_FILE_NAME
+            rm -rf $filelogs
+            echo "deleted file : $filelogs "
+        done <<< $FILES
     else
         echo -e "failed to create $R ZIP FILE "
+        exit 1
     fi
 
 else 
