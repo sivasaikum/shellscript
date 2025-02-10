@@ -46,9 +46,9 @@ then
     echo "Files are "
     echo "$FILES"
     ZIP_FILE="$DEST_DIR/app-logs/$TIMESTAMP"
-    find $SOURCE_DIR -name "*.log" -mtime +$DAYS | zip -@ $ZIP_FILE
+    find $SOURCE_DIR -name "*.log" -mtime +$DAYS | zip -@ "$ZIP_FILE"
 
-    if [ -f $ZIP_FILE ]
+    if [ -f "$ZIP_FILE" ]
     then
         echo -e "Files are successfully $G Zipped $N to a $DEST_DIR "
     while read -r filelogs
