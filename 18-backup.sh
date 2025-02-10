@@ -45,6 +45,22 @@ if [ -n "$FILES" ]
 then
     echo "Files are "
     echo "$FILES"
+    ZIP_FILE="$DEST_DIR/app-logs/$TIMESTAMP"
+    find $SOURCE_DIR -name "*.log" -mtime +$DAYS | zip -@ $ZIP_FILE
+
+    if [ -f $ZIP_FILE ]
+    then
+        echo -e "Files are successfully $G Zipped $N to a $DEST_DIR "
+    while read -r filelogs
+    do
+        echo "Deleting $filelogs " &>>$LOG_FILE_NAME
+        rm -rf $filelogs
+        echo "deleted file : $filelogs "
+    done <<< $FILES
+    else
+        echo -e "failed to create $R ZIP FILE "
+    fi
+
 else 
     echo "there is no flies olderthan $DAYS"
 fi
