@@ -6,7 +6,9 @@ MSG=""
 
 while read -r line
 do
-    echo $line
+    USAGE=$(echo $line | awk -F " " '{print $6F}')
+    PARTITON=$(echo $line | awk -F " " '{print $NF}')
+    echo $PARTITON : : : $USAGE
 
 
 done <<< $DISK_USAGE
