@@ -9,7 +9,7 @@ do
     USAGE=$(echo $line | awk -F " " '{print $6F}' | cut -d "%" -f1)
     PARTITON=$(echo $line | awk -F " " '{print $NF}')
     #echo  $USAGE
-    if [ $USAGE -ge $DISK_THRESHOLD]
+    if [ $USAGE -ge $DISK_THRESHOLD ]
     then 
         MSG+="High Disk usage on partition: $PARTITION Usage is: $USAGE \n "
     else
