@@ -33,19 +33,19 @@
 #     echo " Given num is lessthan 100 "
 # fi
 
-MARKS=$1
+# MARKS=$1
 
-if [ $MARKS -gt 90 ] ; then
-    echo " You got a A+ Grade "
-elif [ $MARKS -gt 80 ] ; then
-    echo " You got a A Grade "
-elif [ $MARKS -gt 70 ] ; then
-    echo " You got a B Grade "
-elif [ $MARKS -gt 60 ] ; then
-    echo " You got a C Grade "
-else 
-    echo " You are Failed "
-fi
+# if [ $MARKS -gt 90 ] ; then
+#     echo " You got a A+ Grade "
+# elif [ $MARKS -gt 80 ] ; then
+#     echo " You got a A Grade "
+# elif [ $MARKS -gt 70 ] ; then
+#     echo " You got a B Grade "
+# elif [ $MARKS -gt 60 ] ; then
+#     echo " You got a C Grade "
+# else 
+#     echo " You are Failed "
+# fi
 
 # echo " no od variables passed : $# "
 # echo " All the variables are : $@ "
@@ -56,5 +56,19 @@ fi
 # echo " PID of a script : $$ "
 # sleep 10 &
 # echo " PID of a previous command : $! "
+
+USERID=$(id-u)
+
+if [ $USERID -ne 0 ] ; then
+    echo " You are not a root user, please run this script in root user "
+    exit 1
+else
+    dnf install mysql -y
+    if [ $? -ne 0 ] ; then
+        echo " Installing MYSQL is failed "
+        exit 1
+    else
+        echo "Installing MYSQL is success"
+fi
 
 
