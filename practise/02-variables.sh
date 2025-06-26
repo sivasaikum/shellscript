@@ -59,17 +59,37 @@
 
 USERID=$(id -u)
 
+# if [ $USERID -ne 0 ] ; then
+#     echo " You are not a root user, please run this script in root user "
+#     exit 1
+
+# else
+#     dnf install mysql -y
+#     if [ $? -ne 0 ] ; then
+#         echo " Installing MYSQL is failed "
+#         exit 1
+#     else
+#         echo "Installing MYSQL is success"
+#     fi
+# fi
+
 if [ $USERID -ne 0 ] ; then
     echo " You are not a root user, please run this script in root user "
     exit 1
-else
+fi 
+
+dnf list insatlled mysql
+
+if [ $? -ne 0 ] ; then
     dnf install mysql -y
     if [ $? -ne 0 ] ; then
-        echo " Installing MYSQL is failed "
-        exit 1
-    else
-        echo "Installing MYSQL is success"
+        echo " Installing Mysql is failure "
+    else 
+        echo " Installing Mysql is success"
     fi
-fi
+else 
+    echo " MYSQL is already Installed ..... "
+fi 
+
 
 
