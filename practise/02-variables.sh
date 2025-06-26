@@ -35,6 +35,7 @@ echo " Home directory of user : $HOME "
 echo " Which user is running : $USER "
 echo " working directory : $PWD "
 echo " PID of a script : $$ "
+sleep 10 &
 echo " PID of a previous command : $! "
 
 
