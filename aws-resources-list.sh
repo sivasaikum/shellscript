@@ -10,6 +10,11 @@
 
 # EC2, S3, RDS, CLOUDFRONT, IAM, VPC, ROUTE53, CLOUDWATCH, CLOUDFORMATION, LAMBDA, SNS, SQS, DYNAMODB, EBS
 
+#DEPENDENCIES
+# INSTALL AWS CLI
+# CONFIGURE AWS
+# 
+
 ######
 
 # The script will prompt the user to enter the AWS region and the service for which the resources need to be listed.
@@ -53,7 +58,7 @@ case $aws_service in
         ;;
     rds)
         echo " Listing the RDS Resources in AWS"
-        aws rds describe-instances --region $aws_region
+        aws rds describe-db-instances --region $aws_region
         ;;
     s3)
         echo " Listing the S3 Resources in AWS"
