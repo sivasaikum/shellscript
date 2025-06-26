@@ -22,10 +22,10 @@ else
     echo "AWS configured is done, Thanks"
 fi
 
-for job_dir in "$JENKINS_HOME/jobs"*/; do
+for job_dir in "$JENKINS_HOME/jobs/"*/; do
     # sudo mkdir $job_dir
     # cd $job_dir/
-    job_name= $(basename "$job_dir")
+    job_name=$(basename "$job_dir")
 
     # Iterate through build directories for the job
     for build_dir in "$job_dir/builds/"*/; do
@@ -35,7 +35,7 @@ for job_dir in "$JENKINS_HOME/jobs"*/; do
         # Check if log file exists and was created today
         if [ -f "$log_file" ] && [ "$(date -r "$log_file" +%Y-%m-%d)" == "$DATE" ]; then
             # Upload log file to S3 with the build number as the filename
-            aws s3 cp "$log_file" "$S3_BUCKET/$job_name-$build_number.log" --only-show-errors4
+            aws s3 cp "$log_file" "$S3_BUCKET/$job_name-$build_number.log" --only-show-errors
 
             if [ $? -eq 0 ]; then
                 echo "Uploaded: $job_name/$build_number to $S3_BUCKET/$job_name-$build_number.log"
