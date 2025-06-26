@@ -4,7 +4,7 @@
 # Description : Shell script to upload all the jenkins logs to s3 bucket
 
 JENKINS_HOME="/var/lib/jenkins"
-S3_BUCKET="jenkins-cost-logs-optimization1"
+S3_BUCKET="s3://jenkins-cost-logs-optimization1"
 DATE=$(date +%Y-%m-%d)
 
 # Check AWS CLI is installed or not
