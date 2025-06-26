@@ -56,7 +56,13 @@
 # echo " PID of a script : $$ "
 # sleep 10 &
 # echo " PID of a previous command : $! "
-
+Validate() {
+    if [ $1 -ne 0 ] ; then
+        echo " $2 is failure "
+    else 
+        echo " $2 is success"
+    fi
+}
 USERID=$(id -u)
 
 # if [ $USERID -ne 0 ] ; then
@@ -82,11 +88,8 @@ dnf list installed mysql
 
 if [ $? -ne 0 ] ; then
     dnf install mysql -y
-    if [ $? -ne 0 ] ; then
-        echo " Installing Mysql is failure "
-    else 
-        echo " Installing Mysql is success"
-    fi
+    Validate $? "Installing Mysql "
+    
 else 
     echo " MYSQL is already Installed ..... "
 fi 
