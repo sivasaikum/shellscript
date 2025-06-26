@@ -27,7 +27,7 @@
 
 NUM1=$1
 
-if [ NUM -ge 100 ] ; then
+if [ $NUM1 -ge 100 ] ; then
     echo "Given nmber is greaterthan or equal to 100"
 else
     echo " Given num is lessthan 100 "
