@@ -56,14 +56,7 @@
 # echo " PID of a script : $$ "
 # sleep 10 &
 # echo " PID of a previous command : $! "
-Validate() {
-    if [ $1 -ne 0 ] ; then
-        echo " $2 is failure "
-    else 
-        echo " $2 is success"
-    fi
-}
-USERID=$(id -u)
+
 
 # if [ $USERID -ne 0 ] ; then
 #     echo " You are not a root user, please run this script in root user "
@@ -78,21 +71,43 @@ USERID=$(id -u)
 #         echo "Installing MYSQL is success"
 #     fi
 # fi
+Validate() {
+    if [ $1 -ne 0 ] ; then
+        echo " $2 is failure "
+    else 
+        echo " $2 is success"
+    fi
+}
+Y="\e[33m"
+
+USERID=$(id -u)
 
 if [ $USERID -ne 0 ] ; then
     echo " You are not a root user, please run this script in root user "
     exit 1
 fi 
 
-dnf list installed mysql
+for package in $@ 
 
-if [ $? -ne 0 ] ; then
-    dnf install mysql -y
-    Validate $? "Installing Mysql "
+do 
+    dnf list installed $package
+    if [ $? -ne 0 ] ; then
+        dnf install $package -y
+        Validate $? " Installing $package "
+    else
+        echo -e " $package is already $Y Installed "
+    fi
+done
+
+# dnf list installed mysql
+
+# if [ $? -ne 0 ] ; then
+#     dnf install mysql -y
+#     Validate $? "Installing Mysql "
     
-else 
-    echo " MYSQL is already Installed ..... "
-fi 
+# else 
+#     echo " MYSQL is already Installed ..... "
+# fi 
 
 
 
