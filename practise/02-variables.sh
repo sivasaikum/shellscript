@@ -26,16 +26,21 @@
 
 
 NUM1=$1
-NUM2=$2
 
-echo " no od variables passed : $# "
-echo " All the variables are : $@ "
-echo " Current script name : $0 "
-echo " Home directory of user : $HOME "
-echo " Which user is running : $USER "
-echo " working directory : $PWD "
-echo " PID of a script : $$ "
-sleep 10 &
-echo " PID of a previous command : $! "
+if [ NUM -ge 100 ] ; then
+    echo "Given nmber is greaterthan or equal to 100"
+else
+    echo " Given num is lessthan 100 "
+fi
+
+# echo " no od variables passed : $# "
+# echo " All the variables are : $@ "
+# echo " Current script name : $0 "
+# echo " Home directory of user : $HOME "
+# echo " Which user is running : $USER "
+# echo " working directory : $PWD "
+# echo " PID of a script : $$ "
+# sleep 10 &
+# echo " PID of a previous command : $! "
 
 
