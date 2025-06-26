@@ -19,9 +19,22 @@
 # echo " $PERSON2 :: I am also good. Whats the plan for today "
 
 
-read -s USERNAME
-read -s PASSWORD
+# read -s USERNAME
+# read -s PASSWORD
 
-echo "USERNAME IS :: $USERNAME"
+# echo "USERNAME IS :: $USERNAME"
+
+
+NUM1=$1
+NUM2=$2
+
+echo " no od variables passed : $# "
+echo " All the variables are : $@ "
+echo " Current script name : $0 "
+echo " Home directory of user : $HOME "
+echo " Which user is running : $USER "
+echo " working directory : $PWD "
+echo " PID of a script : $$ "
+echo " PID of a previous command : $! "
 
 
