@@ -25,12 +25,26 @@
 # echo "USERNAME IS :: $USERNAME"
 
 
-NUM1=$1
+# NUM1=$1
 
-if [ $NUM1 -ge 100 ] ; then
-    echo "Given nmber is greaterthan or equal to 100"
-else
-    echo " Given num is lessthan 100 "
+# if [ $NUM1 -ge 100 ] ; then
+#     echo "Given nmber is greaterthan or equal to 100"
+# else
+#     echo " Given num is lessthan 100 "
+# fi
+
+MARKS=$1
+
+if [ $MARKS -gt 90 ] ; then
+    echo " You got a A+ Grade "
+elif [ $MARKS -gt 80 ] ; then
+    echo " You got a A Grade "
+elif [ $MARKS -gt 70 ] ; then
+    echo " You got a B Grade "
+elif [ $MARKS -gt 60 ] ; then
+    echo " You got a C Grade "
+else 
+    echo " You are Failed "
 fi
 
 # echo " no od variables passed : $# "
