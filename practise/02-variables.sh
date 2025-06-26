@@ -22,6 +22,6 @@
 read -s USERNAME
 read -s PASSWORD
 
-echo "USERNAME IS :: ${USERNAME}"
+echo "USERNAME IS :: $USERNAME"
 
 
