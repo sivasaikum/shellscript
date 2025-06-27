@@ -8,7 +8,6 @@ echo "Files going to delete are :
 
 while read -r filepath
 do
-    echo " $filepath "
-    
-
+    echo "Deleting file is $filepath"
+    rm -rf $filepath
 done <<< $FILES_TO_DELETE
