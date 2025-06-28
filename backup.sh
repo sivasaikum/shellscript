@@ -25,7 +25,7 @@ if [ ! -d $DEST_DIR ] ; then
     exit 1
 fi
 
-FILES=$(find $SOURCE_DIR -name "*.log" -mtime +14)
+FILES=$(find $SOURCE_DIR -name "*.log" -mtime +$3)
 echo "Files are :
 $FILES "
 
