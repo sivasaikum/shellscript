@@ -11,13 +11,20 @@ echo "Script started at $TIMESTAMP "
 
 if [ $# -lt 2 ] ; then
     echo " Error , Usage is sh backup.sh <SOURCE_DIR> <DEST_DIR> "
+    exit 1
 fi 
 
 if [ ! -d $SOURCE_DIR ] ; then
     echo " $SOURCE_DIR is not present "
+    exit 1
 fi
 
 if [ ! -d $DEST_DIR ] ; then 
     echo "$DEST_DIR is not present "
+    exit 1
 fi
+
+FILES=$(find $SOURCE_DIR -name "*.log" -mtime +14)
+echo "Files are :
+$FILES "
 
