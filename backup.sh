@@ -39,7 +39,7 @@ if [ -n "$FILES" ] ; then
         
         while read -r filelogs
         do
-            rm-rf $filelogs
+            rm -rf $filelogs
             echo "deleting file logs are : $filelogs "
 
         done <<< $FILES
