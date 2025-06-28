@@ -8,6 +8,7 @@ TIMESTAMP=$(date +%y-%m-%d-%H-%M-%S)
 
 
 echo "Script started at $TIMESTAMP "
+echo "$3"
 
 if [ $# -lt 2 ] ; then
     echo " Error , Usage is sh backup.sh <SOURCE_DIR> <DEST_DIR> "
